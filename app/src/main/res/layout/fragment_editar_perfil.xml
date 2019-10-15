@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EditarPerfilFragment">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nro de Documento"/>
+    <EditText
+        android:id="@+id/etdni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Dni"
+        android:enabled="true"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Apellido:"/>
+    <EditText
+        android:id="@+id/etApe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Apellido"
+        android:enabled="true"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre"/>
+    <EditText
+        android:id="@+id/etNom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre"
+        android:enabled="true"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Telefono"/>
+    <EditText
+        android:id="@+id/etTel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="codigo+nro"
+        android:enabled="true"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email"/>
+    <EditText
+        android:id="@+id/etEma"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="email"
+        android:enabled="true"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Password"/>
+    <EditText
+        android:id="@+id/etPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:enabled="true"/>
+    <Button
+        android:id="@+id/btnAceptarEdicion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Aceptar"/>
+
+</LinearLayout>
