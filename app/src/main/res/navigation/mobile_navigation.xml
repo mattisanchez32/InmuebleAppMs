@@ -19,7 +19,20 @@
         android:id="@+id/nav_gallery"
         android:name="com.example.inmueble.ui.gallery.GalleryFragment"
         android:label="Propiedades"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_gallery" >
+        <action android:id="@+id/action_nav_propiedad_to_nav_Cliente"
+            app:destination="@+id/nav_Cliente"/>
+    </fragment>
+    <fragment
+        android:id="@+id/nav_Cliente"
+        android:name="com.example.inmueble.ui.gallery.ClienteFragment"
+        android:label="Cliente"
+        tools:layout="@layout/fragment_cliente">
+        <action android:id="@+id/action_nav_Cliente_to_nav_propiedad"
+            app:destination="@+id/nav_gallery"/>
+    </fragment>
+
+
 
     <fragment
         android:id="@+id/nav_slideshow"
@@ -46,12 +59,23 @@
         tools:layout="@layout/fragment_send" />
     <fragment
         android:id="@+id/contrato"
-        android:name="com.example.inmueble.ContratoFragment"
+        android:name="com.example.inmueble.ui.contrato.ContratoFragment"
         android:label="Contrato"
-        tools:layout="@layout/fragment_contrato" />
+        tools:layout="@layout/fragment_contrato">
+        <action android:id="@+id/action_nav_contrato_to_nav_alquiler"
+            app:destination="@+id/nav_alquiler"/>
+    </fragment>
     <fragment
         android:id="@+id/editarPerfilFragment"
         android:name="com.example.inmueble.EditarPerfilFragment"
         android:label="fragment_editar_perfil"
         tools:layout="@layout/fragment_editar_perfil" />
+    <fragment
+        android:id="@+id/nav_alquiler"
+        android:name="com.example.inmueble.ui.contrato.AlquilerFragment"
+        android:label="Alquiler"
+        tools:layout="@layout/alquiler_fragment">
+        <action android:id="@+id/action_nav_alquiler_to_nav_contrato"
+            app:destination="@+id/contrato"/>
+        </fragment>
 </navigation>

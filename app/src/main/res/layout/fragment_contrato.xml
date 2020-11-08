@@ -5,13 +5,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/inmueble"
+    <ListView
+        android:id="@+id/listaPropiedadesContratos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <ExpandableListView
-        android:id="@+id/expContratos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:divider="#3B55E4"
+        android:dividerHeight="2dp"/>
 </LinearLayout>

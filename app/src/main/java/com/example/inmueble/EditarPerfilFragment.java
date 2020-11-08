@@ -1,11 +1,8 @@
 package com.example.inmueble;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,12 +31,12 @@ public class EditarPerfilFragment extends Fragment {
         email = root.findViewById(R.id.etEma);
         pass = root.findViewById(R.id.etPass);
 
-        dni.setText(String.valueOf(MainActivity.prop.getPassword()));
+        /*dni.setText(String.valueOf(MainActivity.prop.getClave()));
         apellido.setText(String.valueOf(MainActivity.prop.getApellido()));
         nombre.setText(String.valueOf(MainActivity.prop.getNombre()));
         telefono.setText(String.valueOf(MainActivity.prop.getTelefono()));
-        email.setText(String.valueOf(MainActivity.prop.getEmail()));
-        pass.setText(String.valueOf(MainActivity.prop.getPassword()));
+        email.setText(String.valueOf(MainActivity.prop.getUsuario()));
+        pass.setText(String.valueOf(MainActivity.prop.getClave()));*/
 
 
 

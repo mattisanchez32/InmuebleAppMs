@@ -1,24 +1,32 @@
 package com.example.inmueble;
 
-public class Propietario {
+public class Propietarios {
 
+    private int idPropietario;
     private String apellido;
     private String nombre;
     private int dni;
-    private String domicilio;
     private int telefono;
     private String email;
-    private String password;
+    private String clave;
 
-    public Propietario(String apellido, String nombre, int dni, String domicilio, int telefono, String email, String password) {
+    public Propietarios() {
+    }
+
+    public Propietarios(int idPropietario, String apellido, String nombre, int dni, int telefono, String email, String clave) {
+        this.idPropietario = idPropietario;
         this.apellido = apellido;
         this.nombre = nombre;
         this.dni = dni;
-        this.domicilio = domicilio;
+
         this.telefono = telefono;
         this.email = email;
-        this.password = password;
+        this.clave = clave;
     }
+
+    public int getIdPropietario() {return idPropietario;}
+
+    public void setIdPropietario(int idPropietario) {this.idPropietario = idPropietario;}
 
     public String getApellido() {
         return apellido;
@@ -44,13 +52,7 @@ public class Propietario {
         this.dni = dni;
     }
 
-    public String getDomicilio() {
-        return domicilio;
-    }
 
-    public void setDomicilio(String domicilio) {
-        this.domicilio = domicilio;
-    }
 
     public int getTelefono() {
         return telefono;
@@ -68,11 +70,24 @@ public class Propietario {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getClave() {
+        return clave;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
+    @Override
+    public String toString() {
+        return "Propietarios{" +
+                "idPropietario=" + idPropietario +
+                ", apellido='" + apellido + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", dni=" + dni +
+                ", telefono=" + telefono +
+                ", email='" + email + '\'' +
+                ", clave='" + clave + '\'' +
+                '}';
     }
 }

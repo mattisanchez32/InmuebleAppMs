@@ -53,7 +53,7 @@
         android:id="@+id/etEma"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="email"
+        android:hint="usuario"
         android:enabled="false"/>
     <TextView
         android:layout_width="match_parent"
@@ -66,10 +66,19 @@
         android:hint="Password"
         android:enabled="false"/>
     <Button
-        android:id="@+id/btnEditarPerfil"
+    android:id="@+id/btnEditarPerfil"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="right"
+    android:text="Editar"
+        />
+    <Button
+        android:id="@+id/btnGuardarPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:text="Editar"/>
+        android:text="Guardar"
+        android:visibility="gone"
+        />
 
 </LinearLayout>

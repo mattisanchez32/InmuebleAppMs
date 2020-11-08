@@ -1,28 +1,44 @@
-package com.example.inmueble;
+package com.example.inmueble.ui.contrato;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.example.inmueble.Alquiler;
+import com.example.inmueble.Inmueble;
+import com.example.inmueble.ListaContratosAdapter;
+import com.example.inmueble.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
 public class ContratoFragment extends Fragment {
 
 
-    private ExpandableListView expandableListView;
-    private ListaContratosAdapter listaContratosAdapter;
-    private ArrayList<String> listaInmueble = new ArrayList<>();
-    private Map<String,ArrayList<Alquiler>> mapContrato = new HashMap<>();
+
+
+    private ListView listView;
+    ArrayList<Inmueble> listaInmueble = new ArrayList<>();
+    private ContratoViewModel viewModel;
+
 
 
 
@@ -32,16 +48,45 @@ public class ContratoFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_contrato, container, false);
 
-        expandableListView = root.findViewById(R.id.expContratos);
-        cargarDatos();
-        listaContratosAdapter = new ListaContratosAdapter(listaInmueble,mapContrato,getContext());
-        expandableListView.setAdapter(listaContratosAdapter);
+
+
+
+        inicializar(root);
 
         return root;
 
     }
 
-    private void cargarDatos(){
+    public void inicializar(View view){
+        listView = view.findViewById(R.id.listaPropiedadesContratos);
+
+        viewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication()).create(ContratoViewModel.class);
+
+        viewModel.getListaDirecciones().observe(getViewLifecycleOwner(), new Observer<List<String>>() {
+            @Override
+            public void onChanged(List<String> strings) {
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, strings);
+                listView.setAdapter(adapter);
+            }
+        });
+
+
+        viewModel.cargarDatos();
+
+
+        listView.setClickable(true);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TextView tv = (TextView)view;
+                Bundle bundle = new Bundle();
+                bundle.putString("direccion", tv.getText().toString());
+                Navigation.findNavController(view).navigate(R.id.nav_alquiler, bundle);
+            }
+        });
+    }
+
+    /*private void cargarDatos(){
         listaInmueble.add("San Martin 300");
         listaInmueble.add("Ayacucho 300");
         listaInmueble.add("Lafinur 300");
@@ -73,7 +118,7 @@ public class ContratoFragment extends Fragment {
         mapContrato.put(listaInmueble.get(2),lafinur);
         mapContrato.put(listaInmueble.get(3),espania);
 
-    }
+    }*/
 
 
 

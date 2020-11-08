@@ -55,21 +55,21 @@ public class ToolsFragment extends Fragment {
             ArrayList<Pago> lafinur = new ArrayList<>();
             ArrayList<Pago> espania = new ArrayList<>();
 
-            sanMartin.add(new Pago(12,"09-12-2018",123));
-            sanMartin.add(new Pago(13,"15-12-2018",123));
-            sanMartin.add(new Pago(14,"28-12-2018",123));
+            sanMartin.add(new Pago(1,12,"09-12-2018",123,9));
+            sanMartin.add(new Pago(2,13,"15-12-2018",123,8));
+            sanMartin.add(new Pago(3,14,"28-12-2018",123,7));
 
 
-            ayacucho.add(new Pago(34,"23-01-2019",1232));
-            ayacucho.add(new Pago(36,"15-02-2019",1235));
-            ayacucho.add(new Pago(87,"28-03-2019",1236));
+            ayacucho.add(new Pago(4,34,"23-01-2019",1232,6));
+            ayacucho.add(new Pago(5,36,"15-02-2019",1235,5));
+            ayacucho.add(new Pago( 6,87,"28-03-2019",1236,4));
 
-            lafinur.add(new Pago(12,"09-12-2018",123));
-            lafinur.add(new Pago(13,"15-12-2018",123));
-            lafinur.add(new Pago(14,"28-12-2018",123));
+            lafinur.add(new Pago(7,12,"09-12-2018",123,3));
+            lafinur.add(new Pago(8,13,"15-12-2018",123,2));
+            lafinur.add(new Pago(9,14,"28-12-2018",123,1));
 
-            espania.add(new Pago(12,"09-12-2018",123));
-            espania.add(new Pago(13,"15-12-2018",123));
+            espania.add(new Pago(10,12,"09-12-2018",123,11));
+            espania.add(new Pago(11,13,"15-12-2018",123,10));
 
             mapPago.put(listaInmueble.get(0),sanMartin);
             mapPago.put(listaInmueble.get(1),ayacucho);

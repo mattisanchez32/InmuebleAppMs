@@ -10,7 +10,7 @@
         android:text="Fecha de Inicio" />
 
     <TextView
-        android:id="@+id/fechaInicio"
+        android:id="@+id/fechaInicioCon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <TextView
@@ -20,7 +20,7 @@
         android:background="#03A9F4"/>
 
     <TextView
-        android:id="@+id/fechaFinalizacion"
+        android:id="@+id/fechaFinalizacionCon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <TextView
@@ -30,7 +30,7 @@
         android:background="#03A9F4"/>
 
     <TextView
-        android:id="@+id/precio"
+        android:id="@+id/precioCon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <TextView

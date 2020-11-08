@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ClienteFragment">
+    tools:context=".ui.gallery.ClienteFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Domicilio" />
     <EditText
+        android:id="@+id/etDomicilioInmueble"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="calle,altura"/>
@@ -20,6 +21,7 @@
         android:layout_height="wrap_content"
         android:text="Ambientes:" />
     <EditText
+        android:id="@+id/etAmbientesInmu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="ambientes"/>
@@ -28,21 +30,21 @@
         android:layout_height="wrap_content"
         android:text="Tipo" />
 
-    <Spinner
-        android:id="@+id/spinner"
+    <EditText
+        android:id="@+id/etTipoInmueble"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/tipoPropiedad" />
+        android:hint="Tipo"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Uso" />
 
-    <Spinner
-        android:id="@+id/spinner2"
+    <EditText
+        android:id="@+id/etUsoInmueble"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/tipoUso" />
+        android:hint="Uso"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -50,22 +52,23 @@
         android:text="Precio" />
 
     <EditText
+        android:id="@+id/etPrecioInmu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Precio"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Disponible"/>
+        android:text="Reservada"/>
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/cbDiponibleInmu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Disponible" />
+        android:text="Reservada" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnEditarInmu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

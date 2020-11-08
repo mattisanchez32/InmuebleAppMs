@@ -12,13 +12,13 @@ import androidx.annotation.Nullable;
 
 import java.util.List;
 
-public class ListaInquilinosAdapter extends ArrayAdapter<Inquilino> {
+public class ListaInquilinosAdapter extends ArrayAdapter<Inquilinos> {
 
     private Context context;
-    private List<Inquilino> lista;
+    private List<Inquilinos> lista;
     private LayoutInflater li;
 
-    public ListaInquilinosAdapter(@NonNull Context context, int resource, @NonNull List<Inquilino> objects, LayoutInflater li) {
+    public ListaInquilinosAdapter(@NonNull Context context, int resource, @NonNull List<Inquilinos> objects, LayoutInflater li) {
         super(context, resource, objects);
         this.context=context;
         this.lista=objects;
@@ -33,7 +33,7 @@ public class ListaInquilinosAdapter extends ArrayAdapter<Inquilino> {
         if(itemView==null){
             itemView=li.inflate(R.layout.iteminquilino,parent,false);
         }
-        Inquilino inquilino = lista.get(position);
+        Inquilinos inquilino = lista.get(position);
 
         TextView dni = itemView.findViewById(R.id.dni);
         dni.setText(inquilino.getDni()+"");

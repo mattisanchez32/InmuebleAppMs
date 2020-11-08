@@ -1,29 +1,46 @@
 package com.example.inmueble.ui.perfil;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.inmueble.EditarPerfilFragment;
 import com.example.inmueble.MainActivity;
+import com.example.inmueble.NavigationDrawerActivity;
+import com.example.inmueble.Propietarios;
 import com.example.inmueble.R;
 
 
 public class PerfilFragment extends Fragment {
 
 
-    EditText dni,apellido,nombre,telefono,email,pass;
-    Button btnEditarPerfil;
+
+
+
+
+
+
+    EditText  dni,apellido,nombre,telefono,email,pass;
+    Button btnEditarPerfil, btnGuardarPerfil;
+    private PerfilViewModel perfilViewModel;
+    private Propietarios propietariosVisto =null;
+
+
+    public static PerfilFragment newInstance() {
+        return new PerfilFragment();
+    }
+
 
 
 
@@ -41,26 +58,92 @@ public class PerfilFragment extends Fragment {
         email = root.findViewById(R.id.etEma);
         pass = root.findViewById(R.id.etPass);
 
-        dni.setText(String.valueOf(MainActivity.prop.getPassword()));
-        apellido.setText(String.valueOf(MainActivity.prop.getApellido()));
-        nombre.setText(String.valueOf(MainActivity.prop.getNombre()));
-        telefono.setText(String.valueOf(MainActivity.prop.getTelefono()));
-        email.setText(String.valueOf(MainActivity.prop.getEmail()));
-        pass.setText(String.valueOf(MainActivity.prop.getPassword()));
+
 
         btnEditarPerfil = root.findViewById(R.id.btnEditarPerfil);
+        btnGuardarPerfil = root.findViewById(R.id.btnGuardarPerfil);
+
+        perfilViewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication()).create(PerfilViewModel.class);
+
+
+        perfilViewModel.leer();
+
+        perfilViewModel.getPropietarioMutableLiveData().observe(this, new Observer<Propietarios>() {
+            @Override
+            public void onChanged(Propietarios propietarios) {
+                propietariosVisto = propietarios;
+                fijarDatos(propietarios);
+            }
+        });
+
+
 
         btnEditarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(getActivity(),R.id.nav_host_fragment).navigate(R.id.editarPerfilFragment);
-                /*I7ntent intentEditar = new Intent(getContext(), EditarPerfilFragment.class);
-                PerfilFragment.this.startActivity(intentEditar);*/
+                editar();
+            }
+        });
+
+
+        btnGuardarPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                aceptar();
             }
         });
 
         return root;
     }
+
+    public void editar(){
+        dni.setEnabled(true);
+        apellido.setEnabled(true);
+        nombre.setEnabled(true);
+        telefono.setEnabled(true);
+        email.setEnabled(true);
+        //pass.setEnabled(true);
+
+        btnEditarPerfil.setVisibility(View.GONE);
+        btnGuardarPerfil.setVisibility(View.VISIBLE);
+    }
+
+    public void aceptar(){
+
+        propietariosVisto.setIdPropietario(propietariosVisto.getIdPropietario());
+        propietariosVisto.setDni(Integer.parseInt(dni.getText().toString()));
+        propietariosVisto.setApellido(apellido.getText().toString());
+        propietariosVisto.setNombre(nombre.getText().toString());
+        propietariosVisto.setTelefono(Integer.parseInt(telefono.getText().toString()));
+        propietariosVisto.setEmail(email.getText().toString());
+        propietariosVisto.setClave(pass.getText().toString());
+        perfilViewModel.actualizar(propietariosVisto);
+    }
+
+    public void fijarDatos(Propietarios sesion){
+
+        dni.setText(String.valueOf(sesion.getDni()));
+        apellido.setText(String.valueOf(sesion.getApellido()));
+        nombre.setText(String.valueOf(sesion.getNombre()));
+        telefono.setText(String.valueOf(sesion.getTelefono()));
+        email.setText(String.valueOf(sesion.getEmail()));
+        pass.setText(String.valueOf(sesion.getClave()));
+        Log.d("salida",pass.getText()+"");
+
+        dni.setEnabled(false);
+        apellido.setEnabled(false);
+        nombre.setEnabled(false);
+        telefono.setEnabled(false);
+        email.setEnabled(false);
+        //pass.setEnabled(false);
+
+        btnEditarPerfil.setVisibility(View.VISIBLE);
+        btnGuardarPerfil.setVisibility(View.GONE);
+
+    }
+
+
+
 
 
 

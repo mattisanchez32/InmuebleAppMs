@@ -1,19 +1,40 @@
 package com.example.inmueble;
 
-public class Inquilino {
+public class Inquilinos {
 
-    private int dni;
+    private int idInquilino;
     private String nombre;
     private String apellido;
     private String direccion;
     private int telefono;
+    private int dni;
+    private String email;
 
-    public Inquilino(int dni, String nombre, String apellido, String direccion, int telefono) {
-        this.dni = dni;
+
+    public Inquilinos(int idInquilino, String nombre, String apellido, String direccion, int telefono, int dni, String email) {
+        this.idInquilino = idInquilino;
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
         this.telefono = telefono;
+        this.dni = dni;
+        this.email = email;
+    }
+
+    public int getIdInquilino() {
+        return idInquilino;
+    }
+
+    public void setIdInquilino(int idInquilino) {
+        this.idInquilino = idInquilino;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getDni() {

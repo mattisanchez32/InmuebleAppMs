@@ -2,20 +2,73 @@ package com.example.inmueble;
 
 public class Inmueble {
 
+    private int idInmueble;
     private String direccion;
-    private int ambientes;
     private String tipo;
+    private int ambientes;
     private String uso;
     private double precio;
-    private boolean disponible;
+    private boolean disponibilidad;
+    private int idPropietario;
+    private double latitud;
+    private double longitud;
+    private int superficie;
 
-    public Inmueble(String direccion, int ambientes, String tipo, String uso, double precio, boolean disponible) {
+    public Inmueble(int idInmueble, String direccion, String tipo, int ambientes, String uso, double precio, boolean disponible, int idPropietario, double latitud, double longitud, int superficie) {
+        this.idInmueble = idInmueble;
         this.direccion = direccion;
-        this.ambientes = ambientes;
         this.tipo = tipo;
+        this.ambientes = ambientes;
         this.uso = uso;
         this.precio = precio;
-        this.disponible = disponible;
+        this.disponibilidad = disponible;
+        this.idPropietario = idPropietario;
+        this.latitud = latitud;
+        this.longitud = longitud;
+        this.superficie = superficie;
+    }
+
+    public Inmueble() {
+    }
+
+    public int getIdInmueble() {
+        return idInmueble;
+    }
+
+    public void setIdInmueble(int idInmueble) {
+        this.idInmueble = idInmueble;
+    }
+
+    public int getIdPropietario() {
+        return idPropietario;
+    }
+
+    public void setIdPropietario(int idPropietario) {
+        this.idPropietario = idPropietario;
+    }
+
+    public double getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(double latitud) {
+        this.latitud = latitud;
+    }
+
+    public double getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(double longitud) {
+        this.longitud = longitud;
+    }
+
+    public int getSuperficie() {
+        return superficie;
+    }
+
+    public void setSuperficie(int superficie) {
+        this.superficie = superficie;
     }
 
     public String getDireccion() {
@@ -59,10 +112,10 @@ public class Inmueble {
     }
 
     public boolean isDisponible() {
-        return disponible;
+        return disponibilidad;
     }
 
     public void setDisponible(boolean disponible) {
-        this.disponible = disponible;
+        this.disponibilidad = disponible;
     }
 }

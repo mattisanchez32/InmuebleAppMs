@@ -73,13 +73,13 @@ public class ListaContratosAdapter extends BaseExpandableListAdapter {
         Alquiler alquiler = (Alquiler) getChild(i,i1);
         view = LayoutInflater.from(context).inflate(R.layout.itemcontrato,null);
 
-        TextView tvFechaInicio = view.findViewById(R.id.fechaInicio);
+        TextView tvFechaInicio = view.findViewById(R.id.fechaInicioCon);
         tvFechaInicio.setText(alquiler.getFechaInicio());
 
-        TextView tvFechaFin = view.findViewById(R.id.fechaFinalizacion);
+        TextView tvFechaFin = view.findViewById(R.id.fechaFinalizacionCon);
         tvFechaFin.setText(alquiler.getFechaFin());
 
-        TextView tvPrecio = view.findViewById(R.id.precio);
+        TextView tvPrecio = view.findViewById(R.id.precioCon);
         tvPrecio.setText(alquiler.getPrecio()+"");
 
         return view;
